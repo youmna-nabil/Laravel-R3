@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use Psy\Command\WhereamiCommand;
+use App\Http\Controllers\ExampleController;
+use App\Http\Controllers\FormController;
 
 /*
 |--------------------------------------------------------------------------
@@ -91,3 +93,17 @@ Route::get('about', function(){
 Route::get('contactus', function(){
     return view('contact');
 });
+
+
+Route::get('login', function(){
+    return view('login');
+});
+
+Route::post('/display-form-data',[FormController::class, 'show'])->name('display.form.data');
+
+
+/**Route::post('logged', function(){
+    return "you logged successfully!";
+})->name('logged');
+**/
+Route::get('control', [ExampleController::class, 'show']);
