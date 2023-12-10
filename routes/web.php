@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use Psy\Command\WhereamiCommand;
 use App\Http\Controllers\ExampleController;
 use App\Http\Controllers\FormController;
+use App\Http\Controllers\CarController;
 
 /*
 |--------------------------------------------------------------------------
@@ -68,42 +69,20 @@ Route::prefix('lar')->group(function(){
  * });
 **/
 
-Route::prefix('blog')->group(function(){
-    Route::get('science', function(){
-        return view('science');
-    });
-
-    Route::get('sports', function(){
-        return view('sports');
-    });
-
-    Route::get('math', function(){
-        return view('math');
-    });
-
-    Route::get('medical', function(){
-        return view('medical');
-    });
-});
-
-Route::get('about', function(){
-    return view('about') ;
-});
-
-Route::get('contactus', function(){
-    return view('contact');
-});
-
-
 Route::get('login', function(){
     return view('login');
 });
 
-Route::post('/display-form-data',[FormController::class, 'show'])->name('display.form.data');
-
-
-/**Route::post('logged', function(){
+Route::post('logged', function(){
     return "you logged successfully!";
 })->name('logged');
-**/
+
 Route::get('control', [ExampleController::class, 'show']);
+
+//insert car data 
+Route::get('createCar', [CarController::class, 'create']);
+Route::post('storeCar', [CarController::class, 'store'])->name('storeCar');
+
+//show data in database
+Route::get('Car', [CarController::class, 'index']);
+Route::post('showCar', [CarController::class, ])->name('showCar');
