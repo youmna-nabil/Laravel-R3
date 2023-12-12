@@ -10,9 +10,9 @@
 
     <ul class="nav navbar-nav">
 
-      <li class="active"><a href="Car">Home</a></li>
+      <li class="active"><a href="{{ route ('Car')}}">Home</a></li>
 
-      <li><a href="createCar">Insert car</a></li>
+      <li><a href="{{ route ('createCar')}}">Insert car</a></li>
 
       <li><a href="#">Page 2</a></li>
 

@@ -20,6 +20,8 @@
         <th>Title</th>
         <th>Description</th>
         <th>Published</th>
+        <th>Eidt</th>
+        <th>Show</th>
       </tr>
     </thead>
     <tbody>
@@ -28,14 +30,15 @@
         <td>{{ $row->title }}</td>
         <td>{{ $row->description }}</td>
         <td>
-           //{{ $row->published ? "yes" : "no"}}
-
+        {{ $row->published ? "yes" : "no"}}
            @if($row->published)
                     Yes
             @else
                     No
             @endif
         </td>
+        <td><a href="eidtCar/{{ $row->id }}">Edit</a></td>
+        <td><a href="showCar/{{ $row->id }}">show</a></td>
       </tr>
     @endforeach 
     </tbody>

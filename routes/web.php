@@ -80,9 +80,17 @@ Route::post('logged', function(){
 Route::get('control', [ExampleController::class, 'show']);
 
 //insert car data 
-Route::get('createCar', [CarController::class, 'create']);
+Route::get('createCar', [CarController::class, 'create'])->name('createCar');
 Route::post('storeCar', [CarController::class, 'store'])->name('storeCar');
 
 //show data in database
-Route::get('Car', [CarController::class, 'index']);
+Route::get('Car', [CarController::class, 'index'])->name('Car');
 Route::post('showCar', [CarController::class, ])->name('showCar');
+
+//update car data
+Route::get('eidtCar/{id}', [CarController::class, 'edit'])->name('eidtCar');
+Route::put('update/{id}', [CarController::class, 'update'])->name('update');
+
+//show car details
+
+Route::get('showCar/{id}', [CarController::class, 'show'])->name('showCar');
