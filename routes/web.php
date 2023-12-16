@@ -17,6 +17,8 @@ use App\Http\Controllers\CarController;
 |
 */
 
+// @if($row->published)Yes@elseNo@endif
+
 Route::get('/', function () {
     return view('welcome');
 });
@@ -92,5 +94,16 @@ Route::get('eidtCar/{id}', [CarController::class, 'edit'])->name('eidtCar');
 Route::put('update/{id}', [CarController::class, 'update'])->name('update');
 
 //show car details
-
 Route::get('showCar/{id}', [CarController::class, 'show'])->name('showCar');
+
+//delete car data using soft delete
+Route::get('deleteCar/{id}', [CarController::class, 'destroy'])->name('deleteCar');
+
+//show deleted cars
+Route::get('trashed', [CarController::class, 'trashed'])->name('trashed');
+
+//delete cars permenantly from database using force delete
+Route::get('forceDelete/{id}', [CarController::class, 'forceDelete'])->name('forceDelete');
+
+//restore deleted data
+Route::get('restore/{id}', [CarController::class, 'restore'])->name('restore');

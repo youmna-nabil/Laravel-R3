@@ -8,6 +8,7 @@ use App\Models\Car;
 class CarController extends Controller
 {
     private $columns = ['title', 'description', 'published'];
+
     /**
      * Display a listing of the resource.
      */
@@ -45,7 +46,11 @@ class CarController extends Controller
         //$cars->save();
         //return "data added successfully";
 
-        $data =  $request->only($this->columns);
+        $data = $request->validate([
+            'title'=>'required|string|max:50',
+            'description' =>'required|string',
+        ]);
+        //$data =  $request->only($this->columns);
         $data['published'] = isset($request->published);
         Car::create($data);
         return redirect('Car');
@@ -85,6 +90,29 @@ class CarController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        Car::where('id',$id)->delete();
+        return redirect ('Car');
+    }
+
+    /**
+     * Trahed List.
+     */
+
+    public function trashed()
+    {
+        $Tcars = Car::onlyTrashed()->get();
+        return view('trashed', compact('Tcars'));
+    }
+
+    public function forceDelete(string $id)
+    {
+        Car::where('id',$id)->forceDelete();
+        return redirect ('Car');
+    }
+
+    public function restore(string $id)
+    {
+        Car::where('id',$id)->restore();
+        return redirect ('Car');
     }
 }

@@ -14,7 +14,7 @@
 
       <li><a href="{{ route ('createCar')}}">Insert car</a></li>
 
-      <li><a href="#">Page 2</a></li>
+      <li><a href="{{ route ('trashed')}}">Trashed Cars</a></li>
 
       <li><a href="#">Page 3</a></li>
 
