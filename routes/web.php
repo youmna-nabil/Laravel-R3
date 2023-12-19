@@ -107,3 +107,14 @@ Route::get('forceDelete/{id}', [CarController::class, 'forceDelete'])->name('for
 
 //restore deleted data
 Route::get('restore/{id}', [CarController::class, 'restore'])->name('restore');
+
+//show image 
+Route::get('showimg', function(){
+    return view('testimage');
+});
+
+//upload image 
+Route::get('upload', function(){
+    return view('image');
+});
+Route::post('imgupload', [ExampleController::class, 'upload'])->name('imgupload');

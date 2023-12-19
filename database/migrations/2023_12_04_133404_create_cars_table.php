@@ -18,6 +18,7 @@ return new class extends Migration
             $table->longText('description');
             $table->boolean('published');
             $table->softDeletes();
+            $table->string('image', 100);
         });
     }
 
