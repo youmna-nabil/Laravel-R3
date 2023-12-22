@@ -23,6 +23,16 @@
       <label for="description">Description:</label>
       <input type="text" class="form-control" id="description" placeholder="Enter description" name="description" value="{{ $car->description}}">
     </div>
+    <div class="form-group">
+      <label for="image">Image:</label>
+      <input type="file" class="form-control" id="image" name="image">
+      <br>
+      <img src="{{ asset('assets/images/'. $car->image) }}" alt="car" style="width:200px;">
+      @error('image')
+        {{ $message }}
+      @enderror
+
+    </div>
     <div class="checkbox">
       <label><input type="checkbox" name="published" @checked($car->published)> published </label>
     </div>

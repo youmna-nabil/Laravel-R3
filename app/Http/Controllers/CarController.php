@@ -3,13 +3,14 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 use App\Models\Car;
 use App\Traits\Common;
 
 class CarController extends Controller
 {
     use Common;
-    private $columns = ['title', 'description', 'published'];
+    private $columns = ['title', 'description', 'published', 'image'];
 
     /**
      * Display a listing of the resource.
@@ -54,8 +55,8 @@ class CarController extends Controller
             'image' => 'required|mimes:png,jpg,jpeg|max:2048',
         ], $messages);
         //$data =  $request->only($this->columns);
-        $filName = $this->uploadFile($request->image, 'assets\images');
-        $data['image'] = $filName;
+        $fileName = $this->uploadFile($request->image, 'assets\images');
+        $data['image'] = $fileName;
         $data['published'] = isset($request->published);
         Car::create($data);
         return redirect('Car');
@@ -84,7 +85,28 @@ class CarController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        $data = $request->only($this->columns);
+        $messages = $this->messages();
+        $data = $request->validate([
+            'title'=>'required|string|max:50',
+            'description' =>'required|string',
+            'image' => 'nullable|mimes:png,jpg,jpeg|max:2048',
+        ], $messages);
+
+        $car = Car::findOrFail($id);
+        // Check if a new image is uploaded
+         if ($request->hasFile('image')) {
+            $request->validate([
+                'image' => 'required|mimes:png,jpg,jpeg|max:2048',
+            ]);
+            // Delete the old image file
+            Storage::delete($car->image);
+            // Upload and store the new image file
+            $fileName = $this->uploadFile($request->image, 'assets\images');
+            // Update the image field in the data array
+            $data['image'] = $fileName;
+        }
+
+        //$data = $request->only($this->columns);
         $data['published'] = isset($request->published);
         Car::where('id',$id)->update($data);
         return redirect ('Car');
