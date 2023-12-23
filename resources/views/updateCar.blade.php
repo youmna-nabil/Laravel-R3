@@ -12,7 +12,7 @@
     @include('includes.nav')
 <div class="container">
   <h2>Update car data</h2>
-  <form action="{{ route('update', [$car->id]) }}" method = "POST">
+  <form action="{{ route('update', [$car->id]) }}" method = "POST" enctype="multipart/form-data">
     @csrf
     @method('put')
     <div class="form-group">
@@ -31,8 +31,8 @@
       @error('image')
         {{ $message }}
       @enderror
-
     </div>
+    <input type= "hidden" name= "oldimage" value="{{$car->image}}">
     <div class="checkbox">
       <label><input type="checkbox" name="published" @checked($car->published)> published </label>
     </div>

@@ -118,3 +118,20 @@ Route::get('upload', function(){
     return view('image');
 });
 Route::post('imgupload', [ExampleController::class, 'upload'])->name('imgupload');
+
+//new template
+Route::get('Home', function(){
+    return view('testHome');
+})->name('home');
+
+Route::get('404', function(){
+    return view('404');
+})->name('404');
+
+Route::get('contact', function(){
+    return view('contact');
+})->name('contact');
+
+Route::get('blog', function(){
+    return view('blog');
+})->name('blog');
