@@ -1,5 +1,8 @@
 @extends('layouts.pages')
 
+@section('title')
+ERROR PAGE 
+@endsection
 @section('content')
 	
 <!-- Error Page -->

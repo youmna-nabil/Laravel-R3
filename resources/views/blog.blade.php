@@ -1,5 +1,9 @@
 @extends('layouts.pages')
 
+@section('title')
+BLOG PAGE 
+@endsection
+
 @section('content')
 	<!-- Breadcrumbs -->
     <div class="breadcrumbs overlay">
