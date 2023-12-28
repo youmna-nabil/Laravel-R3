@@ -6,6 +6,8 @@ namespace Database\Seeders;
 use Illuminate\Database\Seeder;
 use App\Models\User;
 use App\Models\Car;
+use App\Models\Category;
+
 class DatabaseSeeder extends Seeder
 {
     /**
@@ -14,7 +16,8 @@ class DatabaseSeeder extends Seeder
     public function run(): void
     {
         User::factory(10)->create();
-        Car::factory(20)->create();
+        Category::factory(10)->create();
+        Car::factory(10)->create();
 
         // \App\Models\User::factory()->create([
         //     'name' => 'Test User',

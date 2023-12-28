@@ -10,7 +10,7 @@
     
     @yield('content')
 
-
+    @stack('row')
 
     @include('includes/footer')
     @include('includes/footerjs')

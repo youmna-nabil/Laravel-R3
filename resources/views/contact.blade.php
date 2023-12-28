@@ -1,5 +1,9 @@
 @extends('layouts.pages')
 
+@section('title')
+	CONTACT PAGE
+@endsection
+
 @section('content')
 
 		<!-- Breadcrumbs -->
@@ -122,10 +126,6 @@
 		<!--/ End Contact Us -->
         
         @endsection
-
-		@section('title')
-		CONTACT PAGE
-		@endsection
 
 		@section('js')
 

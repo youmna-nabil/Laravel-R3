@@ -3,6 +3,15 @@
 @section('title')
 ERROR PAGE 
 @endsection
+
+@push('row')
+<h2> my 1st row </h2>
+@endpush
+
+@push('row')
+<h2> my 2nd row </h2>
+@endpush
+
 @section('content')
 	
 <!-- Error Page -->

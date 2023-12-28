@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CategoryController;
 use Illuminate\Support\Facades\Route;
 use Psy\Command\WhereamiCommand;
 use App\Http\Controllers\ExampleController;
