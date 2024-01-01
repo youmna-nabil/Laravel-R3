@@ -31,10 +31,24 @@
     </div>
     <div class="form-group">
       <label for="image">Image:</label>
-      <input type="file" class="form-control" id="image"  name="image">
+      <input type="file" class="form-control" id="image"  name="image" value= "{{ old ('image')}}">
       @error('image')
         {{ $message }}
       @enderror
+    </div>
+
+    <div class="form-group">
+      <label for="category">Category:</label>
+      <select name="category_id" id="" >
+        <option value="">Select Category</option>
+        @foreach($categories as $cat)
+        <option value="{{$cat->id}}">{{$cat->cat_name}}</option>
+        @endforeach
+      </select>
+      @error('category_id')
+        {{ $message }}
+      @enderror
+
     </div>
     <div class="checkbox">
       <label><input type="checkbox" name="published" @checked( old('published'))> published </label>

@@ -20,6 +20,7 @@
         <th>Title</th>
         <th>Description</th>
         <th>Published</th>
+        <th>Category</th>
         <th>Eidt</th>
         <th>Show</th>
         <th>Delete</th>
@@ -33,6 +34,7 @@
         <td>
         {{ $row->published ? "Yes" : "No"}}
         </td>
+        <td>{{ $row->category->cat_name}}</td>
         <td><a href="eidtCar/{{ $row->id }}">Edit</a></td>
         <td><a href="showCar/{{ $row->id }}">show</a></td>
         <td><a href="deleteCar/{{ $row->id }}" onclick="return confirm('Are you sure you want to delete?')">delete</a></td>

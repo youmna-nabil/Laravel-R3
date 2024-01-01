@@ -32,6 +32,22 @@
         {{ $message }}
       @enderror
     </div>
+    
+    		<!-- update category  -->
+    <div class="form-group">
+      <label for="category">Category:</label>
+      <select name="category_id" id="" >
+        <option value="">Select Category</option>
+        @foreach($categories as $cat)
+        <option value="{{$cat->id}}">{{ $cat->id == $car->category_id ? 'selected' : '' }}>
+      {{$cat->cat_name}}</option>
+        @endforeach
+      </select>
+      @error('category_id')
+        {{ $message }}
+      @enderror
+    </div>
+
     <input type= "hidden" name= "oldimage" value="{{$car->image}}">
     <div class="checkbox">
       <label><input type="checkbox" name="published" @checked($car->published)> published </label>

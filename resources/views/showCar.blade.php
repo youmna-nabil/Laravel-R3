@@ -18,6 +18,7 @@
     <h5>{{ $car->updated_at }}</h5>
     <h3>{{ $car->description}}</h3>
     <h3>{{ $car->published ? "published": "not published" }}</h3>
+    <h3>{{ $car->category->cat_name}}</h3>
     
 </body>
 
