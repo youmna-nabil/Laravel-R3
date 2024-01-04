@@ -83,7 +83,7 @@ Route::post('logged', function(){
 Route::get('control', [ExampleController::class, 'show']);
 
 //insert car data 
-Route::get('createCar', [CarController::class, 'create'])->name('createCar');
+Route::get('createCar', [CarController::class, 'create'])->middleware('verified')->name('createCar');
 Route::post('storeCar', [CarController::class, 'store'])->name('storeCar');
 
 //show data in database
@@ -136,3 +136,7 @@ Route::get('contact', function(){
 Route::get('blog', function(){
     return view('blog');
 })->name('blog');
+
+Auth::routes(['verify'=>true]);
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('createCar', [CarController::class, 'create'])->middleware('verified')->name('createCar');
