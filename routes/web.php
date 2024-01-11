@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\ContactController;
 use Illuminate\Support\Facades\Route;
 use Psy\Command\WhereamiCommand;
 use App\Http\Controllers\ExampleController;
@@ -129,9 +130,9 @@ Route::get('404', function(){
     return view('404');
 })->name('404');
 
-Route::get('contact', function(){
-    return view('contact');
-})->name('contact');
+// Route::get('contact', function(){
+//     return view('contact');
+// })->name('contact');
 
 Route::get('blog', function(){
     return view('blog');
@@ -140,3 +141,10 @@ Route::get('blog', function(){
 Auth::routes(['verify'=>true]);
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('createCar', [CarController::class, 'create'])->middleware('verified')->name('createCar');
+
+//sessions
+Route::get('test20', [ExampleController::class, 'createSession']);
+
+//assignment day 11
+Route::get('contact',[ContactController::class, 'create'])->name('contact');
+Route::get('insercon', [ContactController::class, 'store']);

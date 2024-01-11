@@ -42,31 +42,47 @@
 								<h2>Contact With Us</h2>
 								<p>If you have any questions please fell free to contact with us.</p>
 								<!-- Form -->
-								<form class="form" method="post" action="mail/mail.php">
+								<form class="form" method="get" action="">
+								@csrf
 									<div class="row">
 										<div class="col-lg-6">
 											<div class="form-group">
-												<input type="text" name="name" placeholder="Name" required="">
+												<input type="text" name="name" placeholder="Name" required="" value= "{{ old ('name')}}">
+												@error('name')
+												{{$message}}
+												@enderror
 											</div>
 										</div>
 										<div class="col-lg-6">
 											<div class="form-group">
-												<input type="email" name="email" placeholder="Email" required="">
+												<input type="email" name="email" placeholder="Email" required=""  value= "{{ old ('email')}}">
+												@error('email')
+												{{$message}}
+												@enderror
 											</div>
 										</div>
 										<div class="col-lg-6">
 											<div class="form-group">
-												<input type="text" name="phone" placeholder="Phone" required="">
+												<input type="text" name="phone" placeholder="Phone" required=""  value= "{{ old ('phone')}}">
+												@error('phone')
+												{{$message}}
+												@enderror
 											</div>
 										</div>
 										<div class="col-lg-6">
 											<div class="form-group">
-												<input type="text" name="subject" placeholder="Subject" required="">
+												<input type="text" name="subject" placeholder="Subject" required=""  value= "{{ old ('subject')}}">
+												@error('subject')
+												{{$message}}
+												@enderror
 											</div>
 										</div>
 										<div class="col-lg-12">
 											<div class="form-group">
-												<textarea name="message" placeholder="Your Message" required=""></textarea>
+												<textarea name="message" placeholder="Your Message" required="" value= "{{ old ('message')}}"></textarea>
+												@error('message')
+												{{$message}}
+												@enderror
 											</div>
 										</div>
 										<div class="col-12">

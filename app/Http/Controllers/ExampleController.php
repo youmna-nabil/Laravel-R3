@@ -20,4 +20,10 @@ class ExampleController extends Controller
         return 'Uploaded';
 
     }
+    public function createSession(){
+
+        session()->put('testsession', 'session value');
+        session()->forget('testsession');
+        return "session created" . "<br>". session('testsession');
+    }
 }
