@@ -130,9 +130,10 @@ Route::get('404', function(){
     return view('404');
 })->name('404');
 
-// Route::get('contact', function(){
-//     return view('contact');
-// })->name('contact');
+Route::get('contact', function(){
+    return view('contact');
+
+})->name('contact');
 
 Route::get('blog', function(){
     return view('blog');
@@ -146,5 +147,4 @@ Route::get('createCar', [CarController::class, 'create'])->middleware('verified'
 Route::get('test20', [ExampleController::class, 'createSession']);
 
 //assignment day 11
-Route::get('contact',[ContactController::class, 'create'])->name('contact');
-Route::get('insercon', [ContactController::class, 'store']);
+Route::post('sendcontactinfo', [ExampleController::class, 'sendcontactinfo'])->name('sendcontactinfo');

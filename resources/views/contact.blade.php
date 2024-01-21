@@ -42,7 +42,7 @@
 								<h2>Contact With Us</h2>
 								<p>If you have any questions please fell free to contact with us.</p>
 								<!-- Form -->
-								<form class="form" method="get" action="">
+								<form class="form" method="POST" action="{{route('sendcontactinfo')}}">
 								@csrf
 									<div class="row">
 										<div class="col-lg-6">
