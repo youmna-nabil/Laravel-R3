@@ -78,7 +78,7 @@ class CarController extends Controller
      */
     public function edit(string $id)
     {
-        $categories =Category::get() ;
+        $categories =Category::get();
         $car = Car::findOrFail($id);
         return view('updateCar', compact('car', 'categories'));
     }
